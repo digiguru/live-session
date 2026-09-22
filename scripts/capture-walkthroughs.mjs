@@ -90,7 +90,7 @@ async function captureTeamTools() {
 }
 
 try {
-  await captureWheel();
+  if (process.env.SKIP_WHEEL !== "1") await captureWheel();
   await captureTeamTools();
 } finally {
   await browser.close();
