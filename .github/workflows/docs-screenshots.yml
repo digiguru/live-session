@@ -25,7 +25,7 @@ jobs:
       - run: npm run docs:screenshots
       - name: Commit refreshed screenshots
         run: |
-          if git diff --quiet -- docs/assets/walkthroughs; then
+          if [ -z "$(git status --porcelain -- docs/assets/walkthroughs)" ]; then
             echo "No screenshot changes."
             exit 0
           fi
