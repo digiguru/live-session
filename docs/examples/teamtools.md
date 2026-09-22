@@ -2,6 +2,10 @@
 
 **Live application:** https://team-tools.digiguru.co.uk
 
+![TeamTools live interface](../assets/teamtools.png)
+
+_Current live TeamTools interface used as the facilitator-led reference implementation._
+
 TeamTools demonstrates the deliberately non-realtime end of the `live-session` design.
 
 It is facilitator-led: one browser manages named participants and records their responses across different team exercises.
