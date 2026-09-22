@@ -24,11 +24,34 @@ jobs:
         with:
           node-version: 24
           package-manager-cache: false
+      - name: Checkout TeamTools preview
+        uses: actions/checkout@v7
+        with:
+          repository: digiguru/TeamTools
+          ref: preview
+          path: teamtools
+      - name: Build TeamTools preview
+        working-directory: teamtools
+        run: |
+          npm install
+          npm run build
+      - name: Serve TeamTools preview
+        working-directory: teamtools
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4174 > /tmp/teamtools-preview.log 2>&1 &
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4174 >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/teamtools-preview.log
+          exit 1
       - run: npm install
       - run: npx playwright install --with-deps chromium
       - run: npm run docs:screenshots
         env:
-          TEAMTOOLS_URL: https://team-tools-git-feat-clean-defaults-gradient-ui-digiguru-s-team.vercel.app
+          TEAMTOOLS_URL: http://127.0.0.1:4174
       - name: Commit refreshed screenshots
         run: |
           if [ -z "$(git status --porcelain -- docs/assets/walkthroughs)" ]; then
