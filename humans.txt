@@ -1,0 +1,19 @@
+/* TEAM */
+Creator: Adam Hall
+GitHub: @digiguru
+
+/* PROJECT */
+Name: live-session
+Purpose: Small composable primitives for collaborative sessions
+Origin: Extracted from Wheel of Emotion and TeamTools
+Repository: https://github.com/digiguru/live-session
+
+/* REFERENCE APPLICATIONS */
+Wheel of Emotion: https://emotion.digiguru.co.uk
+TeamTools: https://team-tools.digiguru.co.uk
+
+/* TECHNOLOGY */
+Language: TypeScript
+Runtime: Node.js 24+
+Testing: Vitest
+License: MIT
