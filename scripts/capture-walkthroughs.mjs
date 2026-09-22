@@ -69,8 +69,10 @@ async function captureTeamTools() {
   await page.goto("https://team-tools.digiguru.co.uk", { waitUntil: "networkidle" });
   await page.locator("#user").waitFor();
 
-  await page.locator("#user").fill("Ada");
-  await page.locator("#add").click();
+  for (const scientist of ["Ada Lovelace", "Alan Turing", "Grace Hopper", "Margaret Hamilton"]) {
+    await page.locator("#user").fill(scientist);
+    await page.locator("#add").click();
+  }
   await snap(page.locator(".tool-card--entry"), `${outputRoot}/teamtools/01-participant-entry.png`);
 
   await snap(page.locator(".tool-grid"), `${outputRoot}/teamtools/02-activity-workspace.png`);
