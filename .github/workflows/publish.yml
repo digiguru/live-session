@@ -1,0 +1,38 @@
+name: Publish package
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - package.json
+      - package-lock.json
+      - src/**
+      - tsconfig*.json
+      - .github/workflows/publish.yml
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          registry-url: https://npm.pkg.github.com
+          scope: "@digiguru"
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - name: Publish if version is new
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if npm view "@digiguru/live-session@$(node -p "require('./package.json').version")" version --registry=https://npm.pkg.github.com >/dev/null 2>&1; then
+            echo "Version already published; skipping."
+          else
+            npm publish
+          fi
