@@ -35,18 +35,22 @@ export function participantPresence<TValue>(
   const byParticipant = new Map<string, { connected: boolean; lastActiveAt?: number }>();
   for (const connection of connections) {
     const existing = byParticipant.get(connection.participantId);
+    const lastActiveAt = connection.lastActiveAt;
     if (!existing) {
       const state: { connected: boolean; lastActiveAt?: number } = { connected: connection.connected };
-      if (Number.isFinite(connection.lastActiveAt)) state.lastActiveAt = connection.lastActiveAt;
+      if (typeof lastActiveAt === "number" && Number.isFinite(lastActiveAt)) {
+        state.lastActiveAt = lastActiveAt;
+      }
       byParticipant.set(connection.participantId, state);
       continue;
     }
     existing.connected ||= connection.connected;
     if (
-      Number.isFinite(connection.lastActiveAt) &&
-      (!Number.isFinite(existing.lastActiveAt) || connection.lastActiveAt! > existing.lastActiveAt!)
+      typeof lastActiveAt === "number" &&
+      Number.isFinite(lastActiveAt) &&
+      (!Number.isFinite(existing.lastActiveAt) || lastActiveAt > existing.lastActiveAt!)
     ) {
-      existing.lastActiveAt = connection.lastActiveAt;
+      existing.lastActiveAt = lastActiveAt;
     }
   }
 
