@@ -12,6 +12,8 @@ It is facilitator-led: one browser manages named participants and records their 
 
 ## Screen 1 — Participant entry
 
+![Participant entry](../assets/walkthroughs/teamtools/01-participant-entry.png)
+
 The facilitator creates the people taking part.
 
 ### What the application owns
@@ -29,6 +31,8 @@ This is important because the shared model does not assume participants are anon
 
 ## Screen 2 — Choose an exercise
 
+![Activity workspace](../assets/walkthroughs/teamtools/02-activity-workspace.png)
+
 TeamTools contains multiple models within one facilitator workspace, including Comfort and Tuckman.
 
 This was the evidence that introduced **Activity** into the shared model.
@@ -42,6 +46,8 @@ Session
 Without Activity, the library would incorrectly assume every session has one contribution schema.
 
 ## Screen 3 — Comfort model
+
+![Comfort model](../assets/walkthroughs/teamtools/03-comfort-model.png)
 
 The facilitator records where a participant sits in the Comfort model using a zone and distance.
 
@@ -71,6 +77,8 @@ The library does not need to understand what a Comfort zone means.
 
 ## Screen 4 — Tuckman model
 
+![Tuckman model](../assets/walkthroughs/teamtools/04-tuckman-model.png)
+
 A participant's Tuckman response has a different domain vocabulary but fits the same contribution envelope.
 
 ```ts
@@ -87,6 +95,8 @@ A participant's Tuckman response has a different domain vocabulary but fits the 
 This is the strongest evidence for separating contribution structure from domain values.
 
 ## Screen 5 — Combined visualization
+
+![Combined TeamTools workspace](../assets/walkthroughs/teamtools/05-combined-workspace.png)
 
 TeamTools renders collected responses into model-specific SVG results.
 
