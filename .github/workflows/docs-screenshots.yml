@@ -1,0 +1,36 @@
+name: Refresh walkthrough screenshots
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/capture-walkthroughs.mjs
+      - .github/workflows/docs-screenshots.yml
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: npm install
+      - run: npx playwright install --with-deps chromium
+      - run: npm run docs:screenshots
+      - name: Commit refreshed screenshots
+        run: |
+          if git diff --quiet -- docs/assets/walkthroughs; then
+            echo "No screenshot changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/assets/walkthroughs
+          git commit -m "docs: refresh walkthrough screenshots [skip ci]"
+          git push
