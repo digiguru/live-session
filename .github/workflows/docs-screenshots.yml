@@ -52,6 +52,7 @@ jobs:
       - run: npm run docs:screenshots
         env:
           TEAMTOOLS_URL: http://127.0.0.1:4174
+          SKIP_WHEEL: "1"
       - name: Commit refreshed screenshots
         run: |
           if [ -z "$(git status --porcelain -- docs/assets/walkthroughs)" ]; then
