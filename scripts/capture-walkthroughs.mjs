@@ -2,6 +2,7 @@ import { chromium } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
 
 const outputRoot = "docs/assets/walkthroughs";
+const teamToolsUrl = process.env.TEAMTOOLS_URL || teamToolsUrl;
 await mkdir(`${outputRoot}/wheel-of-emotion`, { recursive: true });
 await mkdir(`${outputRoot}/teamtools`, { recursive: true });
 
@@ -66,7 +67,7 @@ async function captureWheel() {
 async function captureTeamTools() {
   const context = await browser.newContext({ viewport: { width: 1440, height: 1100 } });
   const page = await context.newPage();
-  await page.goto("https://team-tools.digiguru.co.uk", { waitUntil: "networkidle" });
+  await page.goto(teamToolsUrl, { waitUntil: "networkidle" });
   await page.locator("#user").waitFor();
 
   for (const scientist of ["Ada Lovelace", "Alan Turing", "Grace Hopper", "Margaret Hamilton"]) {
