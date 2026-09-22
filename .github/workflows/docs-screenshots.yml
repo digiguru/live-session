@@ -23,6 +23,8 @@ jobs:
       - run: npm install
       - run: npx playwright install --with-deps chromium
       - run: npm run docs:screenshots
+        env:
+          TEAMTOOLS_URL: https://team-tools-git-preview-digiguru-s-team.vercel.app
       - name: Commit refreshed screenshots
         run: |
           if [ -z "$(git status --porcelain -- docs/assets/walkthroughs)" ]; then
