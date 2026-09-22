@@ -13,8 +13,7 @@
     "url": "git+https://github.com/digiguru/live-session.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "restricted"
+    "access": "public"
   },
   "exports": {
     ".": {
@@ -47,5 +46,20 @@
     "@types/node": "^26.4.1",
     "typescript": "6.0.3",
     "vitest": "^5.0.0"
+  },
+  "author": "Adam Hall (@digiguru)",
+  "license": "MIT",
+  "keywords": [
+    "collaboration",
+    "realtime",
+    "session",
+    "presence",
+    "workshop",
+    "websocket",
+    "typescript"
+  ],
+  "homepage": "https://github.com/digiguru/live-session#readme",
+  "bugs": {
+    "url": "https://github.com/digiguru/live-session/issues"
   }
 }
