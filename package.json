@@ -40,12 +40,14 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "check": "npm run typecheck && npm test && npm run build",
-    "prepublishOnly": "npm run check"
+    "prepublishOnly": "npm run check",
+    "docs:screenshots": "node scripts/capture-walkthroughs.mjs"
   },
   "devDependencies": {
     "@types/node": "^26.4.1",
     "typescript": "6.0.3",
-    "vitest": "^5.0.0"
+    "vitest": "^5.0.0",
+    "@playwright/test": "^1.55.1"
   },
   "author": "Adam Hall (@digiguru)",
   "license": "MIT",
