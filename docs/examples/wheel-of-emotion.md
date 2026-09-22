@@ -12,6 +12,8 @@ It uses anonymous room-scoped participant identities, WebSocket transport, host 
 
 ## Screen 1 — Host dashboard
 
+![Host dashboard](../assets/walkthroughs/wheel-of-emotion/01-host-dashboard.png)
+
 The host starts at the dashboard and creates a named room.
 
 ### What the application owns
@@ -31,6 +33,8 @@ The shared library does not dictate what a dashboard looks like.
 
 ## Screen 2 — Live room
 
+![Live room](../assets/walkthroughs/wheel-of-emotion/02-live-room.png)
+
 The room has a clean public URL that participants can open without an account.
 
 Each browser receives a random room-scoped participant ID.
@@ -44,6 +48,8 @@ Each browser receives a random room-scoped participant ID.
 The participant's name is never required by the library.
 
 ## Screen 3 — Emotion wheel and search
+
+![Emotion wheel and search](../assets/walkthroughs/wheel-of-emotion/03-emotion-wheel.png)
 
 A participant searches or navigates the emotion wheel and chooses one emotion.
 
@@ -69,6 +75,8 @@ Overwhelmed → Hopeful
 There is still one current contribution for that participant.
 
 ## Screen 4 — Host presence / waiting state
+
+![Host presence and waiting state](../assets/walkthroughs/wheel-of-emotion/04-presence-waiting.png)
 
 The host sees several different notions of participation:
 
@@ -96,6 +104,8 @@ Presence deduplicates multiple sockets that share one participant ID.
 
 ## Screen 5 — Group emotion cloud
 
+![Group emotion results](../assets/walkthroughs/wheel-of-emotion/05-group-results.png)
+
 The host sees aggregate emotion results update live.
 
 ### What the application owns
@@ -109,6 +119,8 @@ The library supplies contribution/session structure but deliberately does not kn
 
 ## Screen 6 — Saved rooms and comparison
 
+![Saved rooms](../assets/walkthroughs/wheel-of-emotion/06-saved-rooms.png)
+
 The host can save aggregate snapshots locally and compare sessions over time.
 
 This demonstrates why **Persistence** is separate from transport: the live room currently exists in server memory while saved aggregate history exists in the host browser.
@@ -116,6 +128,8 @@ This demonstrates why **Persistence** is separate from transport: the live room 
 A future application could swap either storage choice without redefining Session or Participant.
 
 ## Screen 7 — Close room
+
+![Closed room](../assets/walkthroughs/wheel-of-emotion/07-closed-room.png)
 
 The host closes the session and participant voting stops.
 
