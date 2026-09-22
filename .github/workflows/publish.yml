@@ -25,7 +25,7 @@ jobs:
           registry-url: https://npm.pkg.github.com
           scope: "@digiguru"
           cache: npm
-      - run: npm ci
+      - run: npm install
       - run: npm run check
       - name: Publish if version is new
         env:
