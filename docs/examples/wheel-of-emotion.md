@@ -2,6 +2,10 @@
 
 **Live application:** https://emotion.digiguru.co.uk
 
+![Wheel of Emotion live interface](../assets/wheel-of-emotion.png)
+
+_Current live Wheel of Emotion interface used as the realtime reference implementation._
+
 Wheel of Emotion demonstrates the realtime end of the `live-session` design.
 
 It uses anonymous room-scoped participant identities, WebSocket transport, host authorization, replace-current contributions and engagement-aware presence.
