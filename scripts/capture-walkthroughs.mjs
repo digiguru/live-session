@@ -2,7 +2,7 @@ import { chromium } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
 
 const outputRoot = "docs/assets/walkthroughs";
-const teamToolsUrl = process.env.TEAMTOOLS_URL || teamToolsUrl;
+const teamToolsUrl = process.env.TEAMTOOLS_URL || "https://team-tools.digiguru.co.uk";
 await mkdir(`${outputRoot}/wheel-of-emotion`, { recursive: true });
 await mkdir(`${outputRoot}/teamtools`, { recursive: true });
 
