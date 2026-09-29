@@ -53,7 +53,7 @@ The shared API exists where those requirements genuinely overlap.
 
 ## Installation
 
-Once published to npm:
+Install from npm:
 
 ```bash
 npm install @digiguru/live-session
@@ -240,7 +240,7 @@ Consumers should depend on released versions rather than copying source files or
 ```json
 {
   "dependencies": {
-    "@digiguru/live-session": "0.1.0"
+    "@digiguru/live-session": "^0.1.1"
   }
 }
 ```
@@ -260,7 +260,7 @@ Each consumer gets its own dependency update, lockfile change, CI and deployment
 
 ## Publishing
 
-The package is intended to be published publicly to npm as:
+The package is published publicly to npm as:
 
 ```text
 @digiguru/live-session
@@ -268,7 +268,7 @@ The package is intended to be published publicly to npm as:
 
 Release versions are immutable. Bump `package.json` for every publishable change.
 
-The publish workflow requires an npm publishing credential (or npm trusted-publisher configuration) before the first release.
+Publishing is performed from `.github/workflows/publish.yml` using npm trusted publishing (OIDC). Create a tag that exactly matches the package version, for example `v0.1.1`; the workflow validates the tag, runs checks, previews the package contents with `npm pack --dry-run`, and publishes without a long-lived npm write token.
 
 ## Open source
 
