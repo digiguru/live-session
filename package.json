@@ -1,6 +1,6 @@
 {
   "name": "@digiguru/live-session",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Transport-agnostic collaboration session primitives with optional realtime presence utilities.",
   "type": "module",
   "private": false,
